@@ -1,7 +1,8 @@
+import traceback
 from python_functions import validate_name, validate_email, validate_password
 
 def validate_user(name, email, password):
-  #  print("validate_user")    
+    print("validate_user"+ ": "+ name + ": "+  email+ ": "+   password)    
 
     if validate_name(name) == False:
         raise ValueError("Checks that the name is greater than two characters and is a string data type")
@@ -12,17 +13,18 @@ def validate_user(name, email, password):
     return True
 
 def register_user(name, email, password):
-    #print("register_user:") 
+    print("register_user:"+ ": "+ name + ": "+  email+ ": "+   password)  
     try:
         validate_user(name, email, password)
     except:
-      #print("An exception occurred")
+      print("An exception occurred")
+      traceback.print_exc() 
       return False
 
     usr_dic = {'name': name, 'email': email, 'password': password}
     return usr_dic
 
 # Call 
-# register_user('Sveta', 'dfdfe@fh.com', 'dyukjhQ3fsdf')
-# validate_user('John', 'john@example.com', 'securePassword123') 
-
+#register_user('Sveta', 'dfdfe@fh.com', 'dyukjhQ3fsdf')
+#validate_user('John', 'john@example.com', 'securePassword123') 
+#register_user('Svetfa', 'dfdfe@fh', 'dyukjhQ3fsdf')
